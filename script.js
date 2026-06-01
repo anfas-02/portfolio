@@ -1,16 +1,3 @@
-// Theme toggle initialization
-const savedTheme = localStorage.getItem("theme");
-const themeToggle = document.getElementById("theme-toggle");
-
-if (savedTheme === "light") {
-  document.body.classList.add("light-theme");
-}
-
-themeToggle?.addEventListener("click", () => {
-  const isLight = document.body.classList.toggle("light-theme");
-  localStorage.setItem("theme", isLight ? "light" : "dark");
-});
-
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
@@ -89,8 +76,7 @@ if (backgroundCanvas) {
   /* ── Draw helpers ── */
 
   const drawFill = () => {
-    const isLight = document.body.classList.contains("light-theme");
-    ctx.fillStyle = isLight ? "#fafafa" : "#05090a";
+    ctx.fillStyle = "#05090a";
     ctx.fillRect(0, 0, width, height);
   };
 
@@ -98,9 +84,6 @@ if (backgroundCanvas) {
     const fontSize = Math.round(CFG.digitSize * CFG.scale * 3);
     ctx.font = `${fontSize}px "Courier New", monospace`;
     ctx.textBaseline = "top";
-
-    const isLight = document.body.classList.contains("light-theme");
-    const currentTint = isLight ? [218, 224, 222] : CFG.tint;
 
     columns.forEach((col) => {
       col.y += col.speed;
@@ -132,10 +115,10 @@ if (backgroundCanvas) {
           glow = Math.max(0, 1 - dist / 220) * CFG.mouseStrength;
         }
 
-        const r = Math.min(255, Math.round(currentTint[0] * bright * (isLight ? 0.45 : 0.18) + glow * (isLight ? 40 : 80)));
-        const g = Math.min(255, Math.round(currentTint[1] * bright * 0.5 + glow * (isLight ? 60 : 120)));
-        const b = Math.min(255, Math.round(currentTint[2] * bright * (isLight ? 0.4 : 0.16) + glow * (isLight ? 30 : 60)));
-        const a = Math.min(1, fade * (isLight ? 0.45 : 0.7) + glow * 0.5);
+        const r = Math.min(255, Math.round(CFG.tint[0] * bright * 0.18 + glow * 80));
+        const g = Math.min(255, Math.round(CFG.tint[1] * bright * 0.22 + glow * 120));
+        const b = Math.min(255, Math.round(CFG.tint[2] * bright * 0.16 + glow * 60));
+        const a = Math.min(1, fade * 0.7 + glow * 0.5);
 
         ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
         ctx.fillText(ch, col.x, cy);
@@ -144,10 +127,8 @@ if (backgroundCanvas) {
   };
 
   const drawScanlines = () => {
-    const isLight = document.body.classList.contains("light-theme");
-    const intensity = isLight ? CFG.scanlineIntensity * 0.12 : CFG.scanlineIntensity * 0.35;
     for (let y = 0; y < height; y += 3) {
-      ctx.fillStyle = `rgba(0,0,0,${intensity})`;
+      ctx.fillStyle = `rgba(0,0,0,${CFG.scanlineIntensity * 0.35})`;
       ctx.fillRect(0, y, width, 1);
     }
   };

@@ -18,25 +18,6 @@
   --placeholder-color: rgba(169, 187, 181, 0.45);
 }
 
-body.light-theme {
-  --ink: #0f172a;
-  --muted: #475569;
-  --paper: #fafafa;
-  --panel: rgba(255, 255, 255, 0.8);
-  --line: rgba(15, 23, 42, 0.08);
-  --teal: #0d9488;
-  --teal-deep: #0f766e;
-  --coral: #ea580c;
-  --violet: #6366f1;
-  --green: #16a34a;
-  --shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
-  --header-bg: rgba(255, 255, 255, 0.85);
-  --experience-bg: #f1f5f9;
-  --skills-bg: #f8fafc;
-  --footer-bg: #ffffff;
-  --input-bg: rgba(255, 255, 255, 0.9);
-  --placeholder-color: #94a3b8;
-}
 
 * {
   box-sizing: border-box;
@@ -110,62 +91,6 @@ a {
   backdrop-filter: blur(18px);
 }
 
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--ink);
-  cursor: pointer;
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.theme-toggle:hover {
-  background: rgba(24, 196, 176, 0.14);
-  color: var(--teal);
-  transform: scale(1.05);
-}
-
-.theme-toggle:active {
-  transform: scale(0.95);
-}
-
-.theme-toggle svg {
-  grid-area: 1/1;
-  transition: transform 300ms ease, opacity 200ms ease;
-}
-
-body:not(.light-theme) .sun-icon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-body:not(.light-theme) .moon-icon {
-  opacity: 0;
-  transform: rotate(90deg);
-  pointer-events: none;
-}
-
-body.light-theme .sun-icon {
-  opacity: 0;
-  transform: rotate(-90deg);
-  pointer-events: none;
-}
-
-body.light-theme .moon-icon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
 
 .brand {
   display: inline-flex;
@@ -276,9 +201,6 @@ body.light-theme .moon-icon {
   animation: fadeInEntrance 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-body.light-theme .hologram-image {
-  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.3));
-}
 
 .hologram-glow {
   position: absolute;
