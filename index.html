@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anfas K | AI and Robotics</title>
+    <meta
+      name="description"
+      content="Portfolio of Anfas K, an AI and Robotics student focused on computer vision, ROS 2, embedded systems, and intelligent web applications."
+    />
+    <link rel="stylesheet" href="styles.css?v=v3" />
+  </head>
+  <body>
+    <canvas class="circuit-background" data-circuit-bg aria-hidden="true"></canvas>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Anfas K home">
+        <span class="brand-mark">AK</span>
+        <span class="brand-text">Anfas K</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" data-nav>
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero section-band">
+        <div class="hero-copy">
+          <p class="eyebrow">AI and Robotics</p>
+          <h1>Anfas K</h1>
+          <p class="hero-lede">
+            AI and Robotics student building practical systems across computer vision, ROS 2,
+            embedded sensing, deep learning, and Streamlit-based AI applications.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="mailto:anfask390@gmail.com">Email Me</a>
+            <a class="button secondary" href="assets/anfas-k-cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="Contact summary">
+        <a href="tel:+917012724183">7012724183</a>
+        <a href="mailto:anfask390@gmail.com">anfask390@gmail.com</a>
+        <span>Kannur, Kerala</span>
+        <a href="https://linkedin.com/in/anfas-k-77ab11347" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/anfas-02" target="_blank" rel="noreferrer">GitHub</a>
+      </section>
+
+      <section class="section profile-section" id="profile">
+        <div class="section-heading">
+          <p class="eyebrow">Profile</p>
+          <h2>Engineer-in-training with a strong AI robotics foundation.</h2>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card">
+            <span class="card-kicker">Computer Vision</span>
+            <h3>Detection and perception pipelines</h3>
+            <p>
+              Experience with OpenCV, MediaPipe, YOLOv8, TensorFlow, depth cameras,
+              ArUco pose estimation, camera calibration, and dataset annotation using Roboflow.
+            </p>
+          </article>
+          <article class="profile-card">
+            <span class="card-kicker">Robotics</span>
+            <h3>Embedded sensing and simulation</h3>
+            <p>
+              Built ESP32 and dual-IMU integrations, created URDF models, simulated motion in
+              RViz, and explored forward kinematics, IK, ROS 2, and arm tracking workflows.
+            </p>
+          </article>
+          <article class="profile-card">
+            <span class="card-kicker">AI Applications</span>
+            <h3>Useful interfaces for models</h3>
+            <p>
+              Developed Streamlit applications for AI proctoring, placement assistance,
+              diet recommendation, blood donation management, and real-time air writing.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow">Internship Experience</p>
+          <h2>Hands-on robotics research and applied perception work.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-meta">ROS, Nav2, SLAM, Path Planning</p>
+              <h3>TortoiseBot Autonomous Navigation System</h3>
+              <p>
+                Developed and tested autonomous navigation capabilities for TortoiseBot using
+                ROS-based navigation frameworks. Implemented localization, mapping, path planning,
+                and obstacle avoidance to enable the robot to navigate safely and efficiently
+                in indoor environments.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-meta">Robotics and AI Intern | iHub Research and Robotics Pvt, Kochi</p>
+              <h3>Depth camera setup and dataset creation</h3>
+              <p>
+                Configured and calibrated depth cameras for 3D perception tasks, then built and
+                annotated custom object detection datasets in Roboflow to support ML training pipelines.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-meta">IMU, ESP32, ROS 2, RViz</p>
+              <h3>Dual-IMU motion capture simulation</h3>
+              <p>
+                Integrated IMU sensors with ESP32, assigned separate I2C addresses, built a
+                double-link URDF model, and simulated arm movement in RViz using ROS 2.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-meta">Forward kinematics and pose estimation</p>
+              <h3>Wrist position tracking workflow</h3>
+              <p>
+                Mounted IMUs at shoulder and elbow positions, calculated wrist coordinates through
+                forward kinematics, and connected outputs into ROS 2 for motion visualization.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-meta">OpenCV, ArUco, DenseFusion research</p>
+              <h3>Marker and 6D pose research</h3>
+              <p>
+                Detected ArUco markers, estimated marker pose, mapped pose outputs into IK-style
+                joint commands, and researched replacing marker tracking with DenseFusion plus IMU fusion.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="timeline-toggle-wrap">
+          <button class="button secondary timeline-toggle" type="button" data-timeline-toggle>
+            <span class="toggle-text">Show More</span>
+            <svg class="toggle-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Projects that connect models, sensors, and usable software.</h2>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter projects">
+          <button class="filter-button is-active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="robotics">Robotics</button>
+          <button class="filter-button" type="button" data-filter="vision">Vision</button>
+          <button class="filter-button" type="button" data-filter="ai">AI</button>
+          <button class="filter-button" type="button" data-filter="apps">Apps</button>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card" data-tags="ai apps">
+            <span class="project-type">RAG Assistant</span>
+            <h3>AI Placement Assistant</h3>
+            <p>
+              RAG-based placement assistant using Python and FAISS to provide resume suggestions,
+              interview preparation guidance, and an interactive Streamlit experience.
+            </p>
+            <div class="tag-list">
+              <span>RAG</span>
+              <span>FAISS</span>
+              <span>Python</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="robotics">
+            <span class="project-type">Robotics</span>
+            <h3>Self Balancing Robot</h3>
+            <p>
+              Autonomous robot using microcontroller programming, sensor fusion, and PID tuning for
+              real-time stability through iterative hardware testing.
+            </p>
+            <div class="tag-list">
+              <span>PID</span>
+              <span>Embedded</span>
+              <span>Sensor fusion</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="vision ai apps">
+            <span class="project-type">Computer Vision</span>
+            <h3>AI Proctoring System</h3>
+            <p>
+              Online exam monitoring with YOLOv8 mobile detection, MediaPipe facial analysis,
+              face verification, multi-person detection, tab-switch tracking, and PDF reports.
+            </p>
+            <div class="tag-list">
+              <span>YOLOv8</span>
+              <span>MediaPipe</span>
+              <span>Streamlit</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="vision ai">
+            <span class="project-type">Deep Learning</span>
+            <h3>Air Canvas AI</h3>
+            <p>
+              Real-time gesture-controlled air writing system using OpenCV, MediaPipe, TensorFlow,
+              and a CNN prediction pipeline with dynamic dataset expansion.
+            </p>
+            <div class="tag-list">
+              <span>OpenCV</span>
+              <span>CNN</span>
+              <span>TensorFlow</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="ai apps">
+            <span class="project-type">Recommendation</span>
+            <h3>Diet Plan Recommender</h3>
+            <p>
+              AI-powered meal planning tool that generates diet suggestions from user age, weight,
+              height, and health goals through a clean Streamlit interface.
+            </p>
+            <div class="tag-list">
+              <span>Python</span>
+              <span>Streamlit</span>
+              <span>ML</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="apps">
+            <span class="project-type">Web App</span>
+            <h3>Blood Donation System</h3>
+            <p>
+              Python and Streamlit application for donor records, blood-group matching, and faster
+              access to donation process information.
+            </p>
+            <div class="tag-list">
+              <span>Python</span>
+              <span>Data records</span>
+              <span>Streamlit</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-toggle-wrap">
+          <button class="button secondary projects-toggle" type="button" data-projects-toggle>
+            <span class="toggle-text">Show More</span>
+            <svg class="toggle-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Technical Stack</p>
+          <h2>Tools and concepts used across the portfolio work.</h2>
+        </div>
+
+        <div class="skills-layout">
+          <article class="skill-block">
+            <h3>Programming</h3>
+            <p>Python, C++, microcontroller programming, data workflows, Streamlit apps.</p>
+          </article>
+          <article class="skill-block">
+            <h3>AI and ML</h3>
+            <p>TensorFlow, CNNs, machine learning, RAG, FAISS, transformers, embeddings.</p>
+          </article>
+          <article class="skill-block">
+            <h3>Vision</h3>
+            <p>OpenCV, MediaPipe, YOLOv8, ArUco detection, pose estimation, Roboflow.</p>
+          </article>
+          <article class="skill-block">
+            <h3>Robotics</h3>
+            <p>ROS 2, RViz, URDF, ESP32, IMU sensors, depth cameras, embedded systems.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-info">
+          <p class="eyebrow">Contact</p>
+          <h2>Available for AI, robotics, and computer vision opportunities.</h2>
+          <p>
+            Based in Kannur, Kerala, and interested in practical AI systems that connect perception,
+            sensing, robotics, and useful software interfaces.
+          </p>
+
+          <div class="contact-panel">
+            <a href="mailto:anfask390@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              anfask390@gmail.com
+            </a>
+            <a href="tel:+917012724183">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +91 70127 24183
+            </a>
+            <a href="https://linkedin.com/in/anfas-k-77ab11347" target="_blank" rel="noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/anfas-02" target="_blank" rel="noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <button class="button secondary copy-button" type="button" data-copy="anfask390@gmail.com">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Email
+            </button>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <h3 class="form-title">Send a Direct Message</h3>
+          <form class="contact-form" id="contact-form" data-contact-form>
+            <input type="hidden" name="access_key" value="7f429641-61db-48cd-ba46-781ed48fbca4" />
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="John Doe" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" placeholder="Collaboration / Opportunity" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button class="button primary form-submit" type="submit" id="contact-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+            <p class="form-hint">Messages are sent directly to my inbox.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> Anfas K. Built around AI, robotics, and computer vision.</p>
+      <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="script.js?v=v3"></script>
+  </body>
+</html>
