@@ -266,15 +266,13 @@ body.light-theme .moon-icon {
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.4));
+  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.45));
   position: relative;
   z-index: 2;
-  mix-blend-mode: screen;
 }
 
 body.light-theme .hologram-image {
-  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.25)) invert(1) hue-rotate(180deg);
-  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.3));
 }
 
 .hologram-glow {
