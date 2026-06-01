@@ -286,17 +286,29 @@ body.light-theme .hologram-image {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-.hologram-scanline {
+.hologram-ring {
   position: absolute;
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(24, 196, 176, 0) 0%, rgba(24, 196, 176, 0.8) 50%, rgba(24, 196, 176, 0) 100%);
-  box-shadow: 0 0 8px var(--teal);
-  z-index: 3;
-  animation: scan 4s linear infinite;
+  width: 320px;
+  height: 320px;
+  border: 1.5px dashed rgba(24, 196, 176, 0.4);
+  border-radius: 50%;
+  z-index: 1;
+  animation: spinRing 50s linear infinite;
+  box-shadow: 0 0 15px rgba(24, 196, 176, 0.1);
   pointer-events: none;
 }
+
+body.light-theme .hologram-ring {
+  border-color: rgba(16, 155, 139, 0.35);
+  box-shadow: 0 0 15px rgba(16, 155, 139, 0.05);
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(0deg); }
@@ -310,12 +322,6 @@ body.light-theme .hologram-image {
   100% { transform: scale(0.9); opacity: 0.7; }
 }
 
-@keyframes scan {
-  0% { top: 10%; opacity: 0; }
-  5% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { top: 90%; opacity: 0; }
-}
 
 .hero-copy {
   max-width: 900px;
