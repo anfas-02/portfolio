@@ -837,10 +837,8 @@ h3 {
   }
 
   .hero {
-    grid-template-columns: 1fr;
     gap: 38px;
     min-height: auto;
-    text-align: center;
   }
 
   .profile-grid,
@@ -889,6 +887,16 @@ h3 {
   .section-band,
   .section {
     padding: 62px 20px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 
   .hero.section-band {
