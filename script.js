@@ -90,7 +90,7 @@ if (backgroundCanvas) {
 
   const drawFill = () => {
     const isLight = document.body.classList.contains("light-theme");
-    ctx.fillStyle = isLight ? "#f4fcf9" : "#05090a";
+    ctx.fillStyle = isLight ? "#fafafa" : "#05090a";
     ctx.fillRect(0, 0, width, height);
   };
 
@@ -100,7 +100,7 @@ if (backgroundCanvas) {
     ctx.textBaseline = "top";
 
     const isLight = document.body.classList.contains("light-theme");
-    const currentTint = isLight ? [13, 34, 30] : CFG.tint;
+    const currentTint = isLight ? [218, 224, 222] : CFG.tint;
 
     columns.forEach((col) => {
       col.y += col.speed;
