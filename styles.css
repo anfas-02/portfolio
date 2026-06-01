@@ -269,6 +269,7 @@ body.light-theme .moon-icon {
   filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.45));
   position: relative;
   z-index: 2;
+  animation: fadeInEntrance 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 body.light-theme .hologram-image {
@@ -283,7 +284,33 @@ body.light-theme .hologram-image {
   border-radius: 50%;
   z-index: 1;
   filter: blur(10px);
-  animation: pulseGlow 4s ease-in-out infinite;
+  animation: 
+    pulseGlow 4s ease-in-out infinite,
+    fadeInGlow 3s ease-out forwards;
+}
+
+@keyframes fadeInEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+    filter: drop-shadow(0 0 0px rgba(24, 196, 176, 0)) brightness(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.45));
+  }
+}
+
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 
