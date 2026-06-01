@@ -255,7 +255,7 @@ body.light-theme .moon-icon {
 .hologram-wrapper {
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 420px;
   animation: float 6s ease-in-out infinite;
   display: flex;
   justify-content: center;
@@ -277,8 +277,8 @@ body.light-theme .hologram-image {
 
 .hologram-glow {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   background: radial-gradient(circle, rgba(24, 196, 176, 0.35) 0%, rgba(24, 196, 176, 0) 70%);
   border-radius: 50%;
   z-index: 1;
@@ -286,27 +286,6 @@ body.light-theme .hologram-image {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-.hologram-ring {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border: 1.5px dashed rgba(24, 196, 176, 0.4);
-  border-radius: 50%;
-  z-index: 1;
-  animation: spinRing 50s linear infinite;
-  box-shadow: 0 0 15px rgba(24, 196, 176, 0.1);
-  pointer-events: none;
-}
-
-body.light-theme .hologram-ring {
-  border-color: rgba(16, 155, 139, 0.35);
-  box-shadow: 0 0 15px rgba(16, 155, 139, 0.05);
-}
-
-@keyframes spinRing {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 
 
