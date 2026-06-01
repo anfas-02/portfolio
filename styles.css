@@ -238,9 +238,85 @@ body.light-theme .moon-icon {
 
 .hero {
   display: grid;
+  grid-template-columns: 1.25fr 1fr;
   align-items: center;
-  gap: 34px;
+  gap: 48px;
   min-height: auto;
+}
+
+.hero-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.hologram-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  animation: float 6s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hologram-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.4));
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+body.light-theme .hologram-image {
+  filter: drop-shadow(0 0 25px rgba(24, 196, 176, 0.25)) invert(1) hue-rotate(180deg);
+  mix-blend-mode: multiply;
+}
+
+.hologram-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(24, 196, 176, 0.35) 0%, rgba(24, 196, 176, 0) 70%);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(10px);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.hologram-scanline {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(24, 196, 176, 0) 0%, rgba(24, 196, 176, 0.8) 50%, rgba(24, 196, 176, 0) 100%);
+  box-shadow: 0 0 8px var(--teal);
+  z-index: 3;
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+@keyframes scan {
+  0% { top: 10%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 90%; opacity: 0; }
 }
 
 .hero-copy {
@@ -825,8 +901,10 @@ h3 {
   }
 
   .hero {
+    grid-template-columns: 1fr;
     gap: 38px;
     min-height: auto;
+    text-align: center;
   }
 
   .profile-grid,
