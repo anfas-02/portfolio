@@ -26,7 +26,7 @@ if (backgroundCanvas) {
     chromaticAberration: 0.04,
     dither: 0.15,
     curvature: 1,
-    tint: [246, 241, 241],       // #f6f1f1
+    tint: [255, 160, 120],       // Warm Orange/Amber Tint
     mouseReact: true,
     mouseStrength: 0.6,
     brightness: 1.2,
@@ -76,7 +76,7 @@ if (backgroundCanvas) {
   /* ── Draw helpers ── */
 
   const drawFill = () => {
-    ctx.fillStyle = "#05090a";
+    ctx.fillStyle = "#0c0c0d";
     ctx.fillRect(0, 0, width, height);
   };
 
@@ -115,10 +115,10 @@ if (backgroundCanvas) {
           glow = Math.max(0, 1 - dist / 220) * CFG.mouseStrength;
         }
 
-        const r = Math.min(255, Math.round(CFG.tint[0] * bright * 0.18 + glow * 80));
-        const g = Math.min(255, Math.round(CFG.tint[1] * bright * 0.22 + glow * 120));
-        const b = Math.min(255, Math.round(CFG.tint[2] * bright * 0.16 + glow * 60));
-        const a = Math.min(1, fade * 0.7 + glow * 0.5);
+        const r = Math.min(255, Math.round(CFG.tint[0] * bright * 0.45 + glow * 180));
+        const g = Math.min(255, Math.round(CFG.tint[1] * bright * 0.16 + glow * 70));
+        const b = Math.min(255, Math.round(CFG.tint[2] * bright * 0.05 + glow * 15));
+        const a = Math.min(1, fade * 0.45 + glow * 0.4);
 
         ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
         ctx.fillText(ch, col.x, cy);
