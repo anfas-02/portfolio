@@ -349,18 +349,20 @@ let typewriterWordIdx = 0;
 let typewriterCharIdx = 0;
 let typewriterIsDeleting = false;
 const typewriterEl = document.getElementById("typewriter-text");
+const headerTypewriterEl = document.getElementById("header-typewriter-text");
 
 function typeEffect() {
-  if (!typewriterEl) return;
   const currentWord = typewriterWords[typewriterWordIdx];
-  
+  const nextText = currentWord.substring(0, typewriterIsDeleting ? typewriterCharIdx - 1 : typewriterCharIdx + 1);
+
   if (typewriterIsDeleting) {
-    typewriterEl.textContent = currentWord.substring(0, typewriterCharIdx - 1);
     typewriterCharIdx--;
   } else {
-    typewriterEl.textContent = currentWord.substring(0, typewriterCharIdx + 1);
     typewriterCharIdx++;
   }
+
+  if (typewriterEl) typewriterEl.textContent = nextText;
+  if (headerTypewriterEl) headerTypewriterEl.textContent = nextText;
 
   let speed = typewriterIsDeleting ? 40 : 80;
 
@@ -376,6 +378,27 @@ function typeEffect() {
   setTimeout(typeEffect, speed);
 }
 typeEffect();
+
+/* ── Header Tagline Scroll-Reveal Observer ── */
+const heroTagline = document.querySelector(".hero-copy .eyebrow");
+const brandTagline = document.querySelector(".brand-tagline");
+
+if (heroTagline && brandTagline) {
+  const headerObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        brandTagline.classList.add("is-visible");
+      } else {
+        brandTagline.classList.remove("is-visible");
+      }
+    },
+    {
+      root: null,
+      threshold: 0,
+    }
+  );
+  headerObserver.observe(heroTagline);
+}
 
 /* ── Interactive Skill Pills Highlight Linkage ── */
 const skillPills = [...document.querySelectorAll(".skill-pill")];

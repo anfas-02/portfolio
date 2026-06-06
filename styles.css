@@ -182,8 +182,40 @@ a {
   border-radius: 8px;
 }
 
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+
 .brand-text {
   font-size: 1rem;
+  font-weight: 800;
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 1px;
+}
+
+.brand-tagline.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header-typewriter-cursor {
+  color: var(--teal);
+  animation: blink 0.75s step-end infinite;
+  margin-left: 1px;
+  font-weight: 800;
 }
 
 .site-nav {
