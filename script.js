@@ -6,7 +6,10 @@ const sections = navLinks
   .filter(Boolean);
 const boxesContainer = document.getElementById("boxes-container");
 
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+const yearEl = document.querySelector("[data-year]");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
 if (boxesContainer) {
   const COLORS = [
@@ -339,4 +342,67 @@ if (revealElements.length > 0) {
 
   revealElements.forEach((el) => revealObserver.observe(el));
 }
+
+/* ── Tagline Typewriter Effect ── */
+const typewriterWords = ["AI and Robotics", "Computer Vision", "Autonomous Navigation", "Embedded Systems"];
+let typewriterWordIdx = 0;
+let typewriterCharIdx = 0;
+let typewriterIsDeleting = false;
+const typewriterEl = document.getElementById("typewriter-text");
+
+function typeEffect() {
+  if (!typewriterEl) return;
+  const currentWord = typewriterWords[typewriterWordIdx];
+  
+  if (typewriterIsDeleting) {
+    typewriterEl.textContent = currentWord.substring(0, typewriterCharIdx - 1);
+    typewriterCharIdx--;
+  } else {
+    typewriterEl.textContent = currentWord.substring(0, typewriterCharIdx + 1);
+    typewriterCharIdx++;
+  }
+
+  let speed = typewriterIsDeleting ? 40 : 80;
+
+  if (!typewriterIsDeleting && typewriterCharIdx === currentWord.length) {
+    speed = 2000; // Pause at end of word
+    typewriterIsDeleting = true;
+  } else if (typewriterIsDeleting && typewriterCharIdx === 0) {
+    typewriterIsDeleting = false;
+    typewriterWordIdx = (typewriterWordIdx + 1) % typewriterWords.length;
+    speed = 500; // Pause before typing next word
+  }
+
+  setTimeout(typeEffect, speed);
+}
+typeEffect();
+
+/* ── Interactive Skill Pills Highlight Linkage ── */
+const skillPills = [...document.querySelectorAll(".skill-pill")];
+skillPills.forEach((pill) => {
+  pill.addEventListener("mouseenter", () => {
+    const targetSkill = pill.textContent.trim().toLowerCase();
+    allProjectCards.forEach((card) => {
+      const cardTags = card.dataset.tags.split(" ").map(t => t.toLowerCase());
+      // Check if project matches based on tags or text content of the card
+      const matches = cardTags.includes(targetSkill) || 
+                      card.querySelector(".tag-list")?.textContent.toLowerCase().includes(targetSkill) ||
+                      card.textContent.toLowerCase().includes(targetSkill);
+
+      if (matches) {
+        card.classList.add("tag-highlighted");
+        card.classList.remove("tag-dimmed");
+      } else {
+        card.classList.add("tag-dimmed");
+        card.classList.remove("tag-highlighted");
+      }
+    });
+  });
+
+  pill.addEventListener("mouseleave", () => {
+    allProjectCards.forEach((card) => {
+      card.classList.remove("tag-highlighted", "tag-dimmed");
+    });
+  });
+});
 

@@ -579,9 +579,16 @@ h3 {
   z-index: 1;
   width: 34px;
   height: 34px;
-  border: 8px solid #07110f;
+  border: 8px solid #0c0c0d;
   border-radius: 50%;
   background: var(--coral);
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.timeline-item:hover .timeline-marker {
+  background: var(--teal);
+  transform: scale(1.18);
+  box-shadow: 0 0 14px rgba(255, 87, 34, 0.65);
 }
 
 .timeline-content {
@@ -740,6 +747,33 @@ h3 {
   font-weight: 800;
 }
 
+.project-links {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--muted);
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.project-link:hover {
+  color: var(--teal);
+  transform: translateX(2px);
+}
+
+.project-link svg {
+  flex-shrink: 0;
+}
+
 /* ── Projects Show More / Less ── */
 
 .project-grid .project-card:nth-child(n+4) {
@@ -782,6 +816,34 @@ h3 {
 
 .skill-block p {
   color: var(--muted);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 87, 34, 0.08);
+  border: 1px solid rgba(255, 122, 79, 0.12);
+  color: var(--ink);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 87, 34, 0.15);
+  border-color: var(--teal);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.25);
+  transform: translateY(-1px);
 }
 
 
@@ -1022,6 +1084,7 @@ h3 {
 .site-footer a {
   color: var(--ink);
   font-weight: 800;
+  margin-left: auto;
 }
 
 @media (max-width: 1040px) {
@@ -1178,4 +1241,17 @@ h3 {
   .skill-block {
     transition: none !important;
   }
+}
+
+/* Typewriter animation styles */
+.typewriter-cursor {
+  color: var(--teal);
+  animation: blink 0.75s step-end infinite;
+  margin-left: 2px;
+  font-weight: 800;
+}
+
+@keyframes blink {
+  from, to { color: transparent }
+  50% { color: var(--teal) }
 }
