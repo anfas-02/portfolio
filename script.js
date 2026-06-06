@@ -132,17 +132,70 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
 
+    // Toggle active state on filter buttons
     filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
-    projectCards.forEach((card) => {
-      const tags = card.dataset.tags.split(" ");
-      card.classList.toggle("is-hidden", filter !== "all" && !tags.includes(filter));
-    });
 
     // Auto-expand grid when filtering so hidden cards can appear
     const projectGrid = document.querySelector(".project-grid");
-    if (filter !== "all") {
+    if (filter !== "all" && projectGrid) {
       projectGrid.classList.add("is-expanded");
+      const projectsToggle = document.querySelector("[data-projects-toggle]");
+      if (projectsToggle) {
+        projectsToggle.classList.add("is-active");
+        projectsToggle.querySelector(".toggle-text").textContent = "Show Less";
+      }
     }
+
+    // Animate project card filtering
+    projectCards.forEach((card) => {
+      const tags = card.dataset.tags.split(" ");
+      const matches = filter === "all" || tags.includes(filter);
+
+      if (matches) {
+        // Clear any active transitions
+        if (card._transitionListener) {
+          card.removeEventListener("transitionend", card._transitionListener);
+          card._transitionListener = null;
+        }
+        if (card._fallbackTimeout) {
+          clearTimeout(card._fallbackTimeout);
+          card._fallbackTimeout = null;
+        }
+
+        card.classList.remove("is-hidden");
+        // Force browser reflow to register style update
+        void card.offsetWidth;
+        card.classList.remove("fade-out");
+      } else {
+        card.classList.add("fade-out");
+
+        // Clear existing transition hook if any
+        if (card._transitionListener) {
+          card.removeEventListener("transitionend", card._transitionListener);
+        }
+        if (card._fallbackTimeout) {
+          clearTimeout(card._fallbackTimeout);
+        }
+
+        const handleHide = (e) => {
+          if (e.propertyName === "opacity" && card.classList.contains("fade-out")) {
+            card.classList.add("is-hidden");
+            card.removeEventListener("transitionend", handleHide);
+            card._transitionListener = null;
+          }
+        };
+
+        card.addEventListener("transitionend", handleHide);
+        card._transitionListener = handleHide;
+
+        card._fallbackTimeout = setTimeout(() => {
+          if (card.classList.contains("fade-out")) {
+            card.classList.add("is-hidden");
+          }
+          card._fallbackTimeout = null;
+        }, 260);
+      }
+    });
   });
 });
 
@@ -236,3 +289,54 @@ contactForm?.addEventListener("submit", async (e) => {
     }, 3000);
   }
 });
+
+/* ── Interactive Tag Cross-Highlighting ── */
+const allTags = [...document.querySelectorAll(".project-card .tag-list span")];
+const allProjectCards = [...document.querySelectorAll(".project-card")];
+
+allTags.forEach((tagSpan) => {
+  tagSpan.addEventListener("mouseenter", () => {
+    const targetTag = tagSpan.textContent.trim().toLowerCase();
+    allProjectCards.forEach((card) => {
+      const cardTags = card.dataset.tags.split(" ").map(t => t.toLowerCase());
+      // Check for match either in data-tags or text content
+      const hasTag = cardTags.includes(targetTag) || card.querySelector(".tag-list")?.textContent.toLowerCase().includes(targetTag);
+
+      if (hasTag) {
+        card.classList.add("tag-highlighted");
+        card.classList.remove("tag-dimmed");
+      } else {
+        card.classList.add("tag-dimmed");
+        card.classList.remove("tag-highlighted");
+      }
+    });
+  });
+
+  tagSpan.addEventListener("mouseleave", () => {
+    allProjectCards.forEach((card) => {
+      card.classList.remove("tag-highlighted", "tag-dimmed");
+    });
+  });
+});
+
+/* ── Scroll Reveal IntersectionObserver ── */
+const revealElements = [...document.querySelectorAll(".reveal-on-scroll")];
+if (revealElements.length > 0) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.05,
+    }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+}
+
